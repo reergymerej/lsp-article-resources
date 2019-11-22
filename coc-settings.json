@@ -1,0 +1,9 @@
+{
+   "languageserver": {
+    "blacklister": {
+      "command": "blacklist-server",
+      "args": ["--stdio"],
+      "filetypes": ["text"]
+    }
+  }
+}
