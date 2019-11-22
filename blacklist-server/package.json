@@ -1,0 +1,11 @@
+{
+  "name": "blacklist-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "bin": {
+    "blacklist-server": "./index.js"
+  },
+  "dependencies": {
+    "vscode-languageserver": "^5.2.1"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "clients": {
+    "blacklister": {
+      "command": [
+        "blacklist-server",
+        "--stdio"
+      ],
+      "enabled": true,
+      "languages": [
+      {
+        "syntaxes": [
+          "Plain text"
+        ]
+      }
+      ]
+    }
+  },
+  "log_debug": true
+}
