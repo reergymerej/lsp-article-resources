@@ -5,8 +5,8 @@ mkdir blacklist-server
 cd blacklist-server
 
 # copy source from repo
-curl -L https://bit.ly/2KS2zm8 -o package.json
-curl -L https://bit.ly/37DRUoU -o index.js
+curl https://raw.githubusercontent.com/reergymerej/lsp-article-resources/master/blacklist-server/package.json -o package.json
+curl https://raw.githubusercontent.com/reergymerej/lsp-article-resources/master/blacklist-server/index.js -o index.js
 
 # make it executable
 npm link
