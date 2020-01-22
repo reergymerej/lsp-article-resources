@@ -6,6 +6,8 @@ const {
   createConnection,
 } = require('vscode-languageserver')
 
+const TextDoc = require('./TextDoc')
+
 const getBlacklisted = (text) => {
   const blacklist = [
     'foo',
@@ -39,7 +41,23 @@ const getDiagnostics = (textDocument) =>
     .map(blacklistToDiagnostic(textDocument))
 
 const connection = createConnection()
-const documents = new TextDocuments()
+
+const docsConfig = {
+  create(uri, languageId, version, content) {
+    return new TextDoc(uri, languageId, version, content)
+  },
+  update(document, changes, version) {
+    if (document) {
+      changes.forEach((change) => {
+        const { text } = change
+        document.setContent(text, version)
+      })
+    }
+    return document
+  }
+}
+
+const documents = new TextDocuments(docsConfig)
 
 connection.onInitialize(() => ({
   capabilities: {
