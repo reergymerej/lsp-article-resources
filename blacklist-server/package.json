@@ -6,6 +6,7 @@
     "blacklist-server": "./index.js"
   },
   "dependencies": {
-    "vscode-languageserver": "^6.0.1"
+    "vscode-languageserver": "^6.0.1",
+    "vscode-languageserver-textdocument": "^1.0.0"
   }
 }
