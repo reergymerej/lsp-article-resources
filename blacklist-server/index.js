@@ -41,20 +41,10 @@ const getDiagnostics = (textDocument) =>
     .map(blacklistToDiagnostic(textDocument))
 
 const connection = createConnection()
-
-const docsConfig = {
-  create(uri, languageId, version, content) {
-    return TextDocument.create(uri, languageId, version, content)
-  },
-  update(document, changes, version) {
-    if (document) {
-      return TextDocument.update(document, changes, version)
-    }
-    return document
-  }
-}
-
-const documents = new TextDocuments(docsConfig)
+const documents = new TextDocuments({
+  create: TextDocument.create,
+  update: TextDocument.update,
+})
 
 connection.onInitialize(() => ({
   capabilities: {
