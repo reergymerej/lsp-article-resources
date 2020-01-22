@@ -41,10 +41,7 @@ const getDiagnostics = (textDocument) =>
     .map(blacklistToDiagnostic(textDocument))
 
 const connection = createConnection()
-const documents = new TextDocuments({
-  create: TextDocument.create,
-  update: TextDocument.update,
-})
+const documents = new TextDocuments(TextDocument)
 
 connection.onInitialize(() => ({
   capabilities: {
