@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 
 const {
   DiagnosticSeverity,
@@ -16,7 +17,8 @@ const getBlacklisted = (text) => {
   ]
   const regex = new RegExp(`\\b(${blacklist.join('|')})\\b`, 'gi')
   const results = []
-  regex.lastIndex = 0
+  let matches
+
   while ((matches = regex.exec(text)) && results.length < 100) {
     results.push({
       value: matches[0],
